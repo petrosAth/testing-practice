@@ -1,0 +1,27 @@
+{
+  "name": "testing-practice",
+  "version": "1.0.0",
+  "description": "Practice on testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/petrosAth/testing-practice.git"
+  },
+  "keywords": [
+    "jest",
+    "ttd",
+    "unit-test"
+  ],
+  "author": "Petros Athanasoulis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petrosAth/testing-practice/issues"
+  },
+  "homepage": "https://github.com/petrosAth/testing-practice#readme",
+  "devDependencies": {
+    "eslint": "^8.46.0"
+  }
+}
