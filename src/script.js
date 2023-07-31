@@ -101,4 +101,13 @@ const ceasarCipher = (shiftFactor, str) => {
   return strCiphered.join('');
 };
 
-export { capitalize, reverseString, calculator, ceasarCipher };
+const analyzeArray = (arrayOfNumbers) => {
+  return {
+    average: arrayOfNumbers.reduce((sum, value) => (sum += value)) / arrayOfNumbers.length,
+    min: arrayOfNumbers.reduce((min, value) => (min = value < min ? value : min)),
+    max: arrayOfNumbers.reduce((max, value) => (max = value > max ? value : max)),
+    length: arrayOfNumbers.length,
+  };
+};
+
+export { capitalize, reverseString, calculator, ceasarCipher, analyzeArray };

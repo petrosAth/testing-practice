@@ -1,4 +1,4 @@
-import { capitalize, reverseString, calculator, ceasarCipher } from './script';
+import { capitalize, reverseString, calculator, ceasarCipher, analyzeArray } from './script';
 
 test('Capitalize the first letter of a string', () => {
   expect(capitalize('string')).toBe('String');
@@ -59,5 +59,11 @@ describe("Ceasar's cipher", () => {
   });
   test("Ceasar's cipher - deCipher: -1, 'This is, Aa string with zZ!'", () => {
     expect(ceasarCipher(-1, 'This is, Aa string with zZ!')).toBe('Sghr hr, Zz rsqhmf vhsg yY!');
+  });
+});
+
+describe('Analyze array', () => {
+  test('analyzeArray([1,8,3,4,2,6])', () => {
+    expect(analyzeArray([1, 8, 3, 4, 2, 6])).toEqual({ average: 4, min: 1, max: 8, length: 6 });
   });
 });
