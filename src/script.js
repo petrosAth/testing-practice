@@ -26,4 +26,79 @@ const calculator = () => {
   return { add, substract, divide, multiply };
 };
 
-export { capitalize, reverseString, calculator };
+const ceasarCipher = (shiftFactor, str) => {
+  const charToCode = (character) => {
+    let charCode = character.codePointAt(0);
+
+    if (charCode > 64 && charCode < 91) {
+      return charCode;
+    }
+
+    if (charCode > 96 && charCode < 123) {
+      return charCode;
+    }
+
+    return character;
+  };
+
+  const shiftCode = (shiftFactor, charCode) => {
+    if (!Number.isInteger(charCode)) {
+      return charCode;
+    }
+
+    shiftFactor = Math.abs(shiftFactor) > 26 ? shiftFactor % 26 : shiftFactor;
+    const charShifted = charCode + shiftFactor;
+
+    if (charCode > 64 && charCode < 91) {
+      if (charShifted < 65) {
+        return 91 - 65 + charShifted;
+      }
+
+      if (charShifted > 90) {
+        return 65 + charShifted - 91;
+      }
+
+      return charShifted;
+    }
+
+    if (charCode > 96 && charCode < 123) {
+      if (charShifted < 97) {
+        return 123 - 97 + charShifted;
+      }
+
+      if (charShifted > 122) {
+        return 97 + charShifted - 123;
+      }
+
+      return charShifted;
+    }
+
+    return charCode + shiftFactor;
+  };
+
+  const codeToChar = (charCode) => {
+    if (charCode > 64 && charCode < 91) {
+      return String.fromCodePoint(charCode);
+    }
+
+    if (charCode > 96 && charCode < 123) {
+      return String.fromCodePoint(charCode);
+    }
+
+    return charCode;
+  };
+
+  const strCiphered = [];
+
+  for (let index = 0; index < str.length; index++) {
+    const charCode = charToCode(str[index]);
+    const charShifted = shiftCode(shiftFactor, charCode);
+    const newChar = codeToChar(charShifted);
+
+    strCiphered.push(newChar);
+  }
+
+  return strCiphered.join('');
+};
+
+export { capitalize, reverseString, calculator, ceasarCipher };

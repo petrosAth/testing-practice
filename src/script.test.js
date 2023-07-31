@@ -1,4 +1,4 @@
-import { capitalize, reverseString, calculator } from './script';
+import { capitalize, reverseString, calculator, ceasarCipher } from './script';
 
 test('Capitalize the first letter of a string', () => {
   expect(capitalize('string')).toBe('String');
@@ -35,5 +35,29 @@ describe('Calculator', () => {
   });
   test('Calculator - multiply: 2, -3', () => {
     expect(calculator().multiply(2, -3)).toBe(-6);
+  });
+});
+
+describe("Ceasar's cipher", () => {
+  test("Ceasar's cipher - cipher: 1, 'This is, A string with zZ!'", () => {
+    expect(ceasarCipher(1, 'This is, Aa string with zZ!')).toBe('Uijt jt, Bb tusjoh xjui aA!');
+  });
+  test("Ceasar's cipher - cipher: 4, 'This is, A string with zZ!'", () => {
+    expect(ceasarCipher(4, 'This is, Aa string with zZ!')).toBe('Xlmw mw, Ee wxvmrk amxl dD!');
+  });
+  test("Ceasar's cipher - cipher: 30, 'This is, A string with zZ!'", () => {
+    expect(ceasarCipher(30, 'This is, Aa string with zZ!')).toBe('Xlmw mw, Ee wxvmrk amxl dD!');
+  });
+  test("Ceasar's cipher - deCipher: -1, 'Uijt jt, B tusjoh xjui aA!'", () => {
+    expect(ceasarCipher(-1, 'Uijt jt, Bb tusjoh xjui aA!')).toBe('This is, Aa string with zZ!');
+  });
+  test("Ceasar's cipher - deCipher: -4, 'Xlmw mw, E wxvmrk amxl dD!'", () => {
+    expect(ceasarCipher(-4, 'Xlmw mw, Ee wxvmrk amxl dD!')).toBe('This is, Aa string with zZ!');
+  });
+  test("Ceasar's cipher - deCipher: -30, 'Xlmw mw, E wxvmrk amxl dD!'", () => {
+    expect(ceasarCipher(-30, 'Xlmw mw, Ee wxvmrk amxl dD!')).toBe('This is, Aa string with zZ!');
+  });
+  test("Ceasar's cipher - deCipher: -1, 'This is, Aa string with zZ!'", () => {
+    expect(ceasarCipher(-1, 'This is, Aa string with zZ!')).toBe('Sghr hr, Zz rsqhmf vhsg yY!');
   });
 });
