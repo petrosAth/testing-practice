@@ -10,4 +10,20 @@ const reverseString = (str) => {
   return reversedString;
 };
 
-export { capitalize, reverseString };
+const calculator = () => {
+  const add = (numA, numB) => {
+    return numA + numB;
+  };
+  const substract = (numA, numB) => {
+    return numA - numB;
+  };
+  const divide = (numA, numB) => {
+    return Math.round((numA / numB) * 100) / 100;
+  };
+  const multiply = (numA, numB) => {
+    return numA * numB;
+  };
+  return { add, substract, divide, multiply };
+};
+
+export { capitalize, reverseString, calculator };
